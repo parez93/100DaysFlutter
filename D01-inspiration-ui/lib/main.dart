@@ -118,7 +118,7 @@ class MyApp extends StatelessWidget {
                       height: 150,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
-                        image: DecorationImage(
+                        image: const DecorationImage(
                           fit: BoxFit.cover,
                           image: AssetImage('assets/images/three.jpg'),
                         ),
@@ -135,10 +135,10 @@ class MyApp extends StatelessWidget {
                             ],
                           ),
                         ),
-                        child: Align(
+                        child: const Align(
                           alignment: Alignment.bottomLeft,
                           child: Padding(
-                            padding: const EdgeInsets.all(15.0),
+                            padding: EdgeInsets.all(15.0),
                             child: Text(
                               'Best Design',
                               style:
