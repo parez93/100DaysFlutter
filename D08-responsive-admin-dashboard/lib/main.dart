@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:responsive_admin_dashboard/constants/constants.dart';
+import 'package:responsive_admin_dashboard/widgets/drawer_list_tile.dart';
+import 'package:responsive_admin_dashboard/widgets/side_menu.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,10 +16,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: bgColor,
+        textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme)
+            .apply(bodyColor: secondaryColor),
+        canvasColor: secondaryColor,
       ),
       home: const MyHomePage(),
     );
@@ -31,6 +39,23 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: SafeArea(
+        child: Row(
+          children: [
+            Expanded(
+              child: SideMenu(),
+            ),
+            Expanded(
+              flex: 5,
+              child: Container(
+                color: Colors.blue,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
+
