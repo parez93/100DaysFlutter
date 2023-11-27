@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -6,7 +7,11 @@ import 'package:responsive_admin_dashboard/widgets/drawer_list_tile.dart';
 import 'package:responsive_admin_dashboard/widgets/side_menu.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+      DevicePreview(
+        enabled: true,
+        builder: (context) => MyApp(), // Wrap your app
+      ));
 }
 
 class MyApp extends StatelessWidget {
@@ -16,6 +21,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData.dark().copyWith(
