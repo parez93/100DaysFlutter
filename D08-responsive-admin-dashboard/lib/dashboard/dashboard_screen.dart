@@ -1,10 +1,47 @@
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_admin_dashboard/constants/constants.dart';
+import 'package:responsive_admin_dashboard/dashboard/widgets/chart.dart';
+import 'package:responsive_admin_dashboard/dashboard/widgets/storage_details.dart';
+import 'package:responsive_admin_dashboard/dashboard/widgets/storage_info_card.dart';
 
 import 'widgets/header.dart';
 
 class DashboardScreen extends StatelessWidget {
-  const DashboardScreen({super.key});
+  DashboardScreen({super.key});
+
+  final pieChartSelectionData = [
+    PieChartSectionData(
+      color: primaryColor,
+      value: 25,
+      showTitle: false,
+      radius: 25,
+    ),
+    PieChartSectionData(
+      color: Color(0xFF26E5FF),
+      value: 20,
+      showTitle: false,
+      radius: 22,
+    ),
+    PieChartSectionData(
+      color: Color(0xFFFFCF26),
+      value: 10,
+      showTitle: false,
+      radius: 19,
+    ),
+    PieChartSectionData(
+      color: Color(0xFFEE2727),
+      value: 15,
+      showTitle: false,
+      radius: 16,
+    ),
+    PieChartSectionData(
+      color: primaryColor.withOpacity(.1),
+      value: 15,
+      showTitle: false,
+      radius: 13,
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -13,11 +50,32 @@ class DashboardScreen extends StatelessWidget {
         padding: EdgeInsets.all(defaultPadding),
         child: Column(
           children: [
-            Header()
+            Header(),
+            SizedBox(
+              height: defaultPadding,
+            ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                    flex: 5,
+                    child: Container(
+                      height: 500,
+                      color: Colors.white,
+                    )),
+                SizedBox(
+                  width: defaultPadding,
+                ),
+                Expanded(
+                    flex: 2,
+                    child: StorageDetails(pieChartSelectionData: pieChartSelectionData)),
+              ],
+            )
           ],
         ),
       ),
     );
   }
 }
+
 
