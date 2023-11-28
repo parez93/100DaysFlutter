@@ -2,6 +2,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_admin_dashboard/constants/constants.dart';
 import 'package:responsive_admin_dashboard/dashboard/widgets/chart.dart';
+import 'package:responsive_admin_dashboard/dashboard/widgets/my_files.dart';
 import 'package:responsive_admin_dashboard/dashboard/widgets/storage_details.dart';
 import 'package:responsive_admin_dashboard/dashboard/widgets/storage_info_card.dart';
 
@@ -58,17 +59,16 @@ class DashboardScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Expanded(
-                    flex: 5,
-                    child: Container(
-                      height: 500,
-                      color: Colors.white,
-                    )),
+                  flex: 5,
+                  child: MyFiles(),
+                ),
                 SizedBox(
                   width: defaultPadding,
                 ),
                 Expanded(
                     flex: 2,
-                    child: StorageDetails(pieChartSelectionData: pieChartSelectionData)),
+                    child: StorageDetails(
+                        pieChartSelectionData: pieChartSelectionData)),
               ],
             )
           ],
@@ -77,5 +77,3 @@ class DashboardScreen extends StatelessWidget {
     );
   }
 }
-
-

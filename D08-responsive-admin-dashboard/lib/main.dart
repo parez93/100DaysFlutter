@@ -1,17 +1,18 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_admin_dashboard/constants/constants.dart';
 import 'package:responsive_admin_dashboard/dashboard/dashboard_screen.dart';
-import 'package:responsive_admin_dashboard/widgets/drawer_list_tile.dart';
 import 'package:responsive_admin_dashboard/widgets/side_menu.dart';
 
 void main() {
-  runApp(DevicePreview(
+  runApp(
+      DevicePreview(
     enabled: true,
-    builder: (context) => MyApp(), // Wrap your app
-  ));
+    builder: (context) =>
+        MyApp(), // Wrap your app
+  )
+  );
 }
 
 class MyApp extends StatelessWidget {
