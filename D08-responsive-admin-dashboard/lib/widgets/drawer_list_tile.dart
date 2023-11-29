@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class DrawerListTile extends StatelessWidget {
-  final String title, svgSrc;
+  final String title;
+  final IconData svgSrc;
   final VoidCallback onTap;
 
 
@@ -10,11 +11,7 @@ class DrawerListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: Container(
-        color: Colors.white54,
-        height: 16,
-        width: 16,
-      ),
+      leading: Icon(svgSrc, size: 16,),
       title: Text(
         title,
         style: TextStyle(color: Colors.white54),

@@ -11,14 +11,14 @@ class SideMenu extends StatelessWidget {
         child: Column(
           children: [
             DrawerHeader(child: FlutterLogo()),
-            DrawerListTile(title: 'Dashboard', svgSrc: 'assets/icons/menu_dashboard', onTap: (){}),
-            DrawerListTile(title: 'Transaction', svgSrc: 'assets/icons/menu_tran', onTap: (){}),
-            DrawerListTile(title: 'Task', svgSrc: 'assets/icons/menu_task', onTap: (){}),
-            DrawerListTile(title: 'Documents', svgSrc: 'assets/icons/menu_doc', onTap: (){}),
-            DrawerListTile(title: 'Store', svgSrc: 'assets/icons/menu_store', onTap: (){}),
-            DrawerListTile(title: 'Notification', svgSrc: 'assets/icons/menu_notification', onTap: (){}),
-            DrawerListTile(title: 'Profile', svgSrc: 'assets/icons/menu_profile', onTap: (){}),
-            DrawerListTile(title: 'Settings', svgSrc: 'assets/icons/menu_setting', onTap: (){}),
+            DrawerListTile(title: 'Dashboard', svgSrc: Icons.dashboard, onTap: (){}),
+            DrawerListTile(title: 'Transaction', svgSrc: Icons.transform, onTap: (){}),
+            DrawerListTile(title: 'Task', svgSrc: Icons.task, onTap: (){}),
+            DrawerListTile(title: 'Documents', svgSrc: Icons.insert_drive_file_outlined, onTap: (){}),
+            DrawerListTile(title: 'Store', svgSrc: Icons.shopping_bag_outlined, onTap: (){}),
+            DrawerListTile(title: 'Notification', svgSrc: Icons.notifications, onTap: (){}),
+            DrawerListTile(title: 'Profile', svgSrc: Icons.person, onTap: (){}),
+            DrawerListTile(title: 'Settings', svgSrc: Icons.settings, onTap: (){}),
 
           ],
         ),
