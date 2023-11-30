@@ -7,18 +7,17 @@ import 'package:responsive_admin_dashboard/constants/constants.dart';
 import 'package:responsive_admin_dashboard/dashboard/dashboard_screen.dart';
 import 'package:responsive_admin_dashboard/widgets/side_menu.dart';
 
+import 'common/resposive.dart';
+
 void main() {
   LicenseRegistry.addLicense(() async* {
     final license = await rootBundle.loadString('google_fonts/OFL.txt');
     yield LicenseEntryWithLineBreaks(['google_fonts'], license);
   });
-  runApp(
-      DevicePreview(
+  runApp(DevicePreview(
     enabled: true,
-    builder: (context) =>
-        MyApp(), // Wrap your app
-  )
-  );
+    builder: (context) => MyApp(), // Wrap your app
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -54,13 +53,15 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: SideMenu(),
       body: SafeArea(
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Expanded(
-              child: SideMenu(),
-            ),
+            if (Responsive.isDesktop(context))
+              Expanded(
+                child: SideMenu(),
+              ),
             Expanded(flex: 5, child: DashboardScreen()),
           ],
         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_admin_dashboard/common/resposive.dart';
 import 'package:responsive_admin_dashboard/constants/constants.dart';
 
 class Header extends StatelessWidget {
@@ -10,16 +11,18 @@ class Header extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text('Dashboard',
-            style: Theme.of(context).textTheme.headlineSmall),
-        Spacer(flex: 2),
+        if (!Responsive.isDesktop(context))
+          IconButton(onPressed: () {}, icon: Icon(Icons.menu)),
+        if (!Responsive.isMobile(context))
+          Text('Dashboard', style: Theme.of(context).textTheme.headlineSmall),
+        if (!Responsive.isMobile(context))
+          Spacer(flex: Responsive.isDesktop(context) ? 2 : 1),
         Expanded(child: SearchField()),
         ProfileCard()
       ],
     );
   }
 }
-
 
 class ProfileCard extends StatelessWidget {
   const ProfileCard({
@@ -39,10 +42,12 @@ class ProfileCard extends StatelessWidget {
       child: Row(
         children: [
           FlutterLogo(size: 38),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: defaultPadding / 2),
-            child: Text('Admin'),
-          ),
+          if (!Responsive.isMobile(context))
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: defaultPadding / 2),
+              child: Text('Admin'),
+            ),
           Icon(Icons.keyboard_arrow_down)
         ],
       ),

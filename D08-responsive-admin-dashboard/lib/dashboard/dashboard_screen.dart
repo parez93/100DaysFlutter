@@ -1,5 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:responsive_admin_dashboard/common/resposive.dart';
 import 'package:responsive_admin_dashboard/constants/constants.dart';
 import 'package:responsive_admin_dashboard/dashboard/widgets/my_files.dart';
 import 'package:responsive_admin_dashboard/dashboard/widgets/recent_files.dart';
@@ -64,16 +65,25 @@ class DashboardScreen extends StatelessWidget {
                       MyFiles(),
                       SizedBox(height: defaultPadding),
                       RecentFiles(),
+                      if (Responsive.isMobile(context))
+                        SizedBox(
+                          height: defaultPadding,
+                        ),
+                      if (Responsive.isMobile(context))
+                        StorageDetails(
+                            pieChartSelectionData: pieChartSelectionData),
                     ],
                   ),
                 ),
-                SizedBox(
-                  width: defaultPadding,
-                ),
-                Expanded(
-                    flex: 2,
-                    child: StorageDetails(
-                        pieChartSelectionData: pieChartSelectionData)),
+                if (!Responsive.isMobile(context))
+                  SizedBox(
+                    width: defaultPadding,
+                  ),
+                if (!Responsive.isMobile(context))
+                  Expanded(
+                      flex: 2,
+                      child: StorageDetails(
+                          pieChartSelectionData: pieChartSelectionData)),
               ],
             )
           ],
