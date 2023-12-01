@@ -19,19 +19,19 @@ class DashboardScreen extends StatelessWidget {
       radius: 25,
     ),
     PieChartSectionData(
-      color: Color(0xFF26E5FF),
+      color: const Color(0xFF26E5FF),
       value: 20,
       showTitle: false,
       radius: 22,
     ),
     PieChartSectionData(
-      color: Color(0xFFFFCF26),
+      color: const Color(0xFFFFCF26),
       value: 10,
       showTitle: false,
       radius: 19,
     ),
     PieChartSectionData(
-      color: Color(0xFFEE2727),
+      color: const Color(0xFFEE2727),
       value: 15,
       showTitle: false,
       radius: 16,
@@ -48,11 +48,11 @@ class DashboardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: SingleChildScrollView(
-        padding: EdgeInsets.all(defaultPadding),
+        padding: const EdgeInsets.all(defaultPadding),
         child: Column(
           children: [
-            Header(),
-            SizedBox(
+            const Header(),
+            const SizedBox(
               height: defaultPadding,
             ),
             Row(
@@ -62,11 +62,11 @@ class DashboardScreen extends StatelessWidget {
                   flex: 5,
                   child: Column(
                     children: [
-                      MyFiles(),
-                      SizedBox(height: defaultPadding),
-                      RecentFiles(),
+                      const MyFiles(),
+                      const SizedBox(height: defaultPadding),
+                      const RecentFiles(),
                       if (Responsive.isMobile(context))
-                        SizedBox(
+                        const SizedBox(
                           height: defaultPadding,
                         ),
                       if (Responsive.isMobile(context))
@@ -76,7 +76,7 @@ class DashboardScreen extends StatelessWidget {
                   ),
                 ),
                 if (!Responsive.isMobile(context))
-                  SizedBox(
+                  const SizedBox(
                     width: defaultPadding,
                   ),
                 if (!Responsive.isMobile(context))

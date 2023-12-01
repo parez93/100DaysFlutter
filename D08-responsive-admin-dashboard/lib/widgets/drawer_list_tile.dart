@@ -14,7 +14,7 @@ class DrawerListTile extends StatelessWidget {
       leading: Icon(svgSrc, size: 16,),
       title: Text(
         title,
-        style: TextStyle(color: Colors.white54),
+        style: const TextStyle(color: Colors.white54),
       ),
       horizontalTitleGap: 0.0,
       onTap: onTap,

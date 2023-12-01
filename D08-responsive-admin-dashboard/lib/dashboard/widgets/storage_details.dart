@@ -15,26 +15,26 @@ class StorageDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(defaultPadding),
+      padding: const EdgeInsets.all(defaultPadding),
       decoration: BoxDecoration(
           color: secondaryColor,
           borderRadius: BorderRadius.circular(10)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             'Storage details',
             style: TextStyle(
                 fontSize: 18, fontWeight: FontWeight.w500),
           ),
-          SizedBox(
+          const SizedBox(
             height: defaultPadding,
           ),
           Chart(pieChartSelectionData: pieChartSelectionData),
-          StorageInfoCard(title: 'Documents Files',amountOfFiles: '1.3GB',icon: Icons.file_copy,numOfFiles: 1329),
-          StorageInfoCard(title: 'Media Files',amountOfFiles: '15.3GB',icon: Icons.ondemand_video,numOfFiles: 1328),
-          StorageInfoCard(title: 'Other Files',amountOfFiles: '1.3GB',icon: Icons.folder,numOfFiles: 1328),
-          StorageInfoCard(title: 'Unknown',amountOfFiles: '1.3GB',icon: Icons.question_mark,numOfFiles: 140),
+          const StorageInfoCard(title: 'Documents Files',amountOfFiles: '1.3GB',icon: Icons.file_copy,numOfFiles: 1329),
+          const StorageInfoCard(title: 'Media Files',amountOfFiles: '15.3GB',icon: Icons.ondemand_video,numOfFiles: 1328),
+          const StorageInfoCard(title: 'Other Files',amountOfFiles: '1.3GB',icon: Icons.folder,numOfFiles: 1328),
+          const StorageInfoCard(title: 'Unknown',amountOfFiles: '1.3GB',icon: Icons.question_mark,numOfFiles: 140),
         ],
       ),
     );

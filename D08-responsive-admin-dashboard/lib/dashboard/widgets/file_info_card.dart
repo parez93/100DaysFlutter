@@ -14,7 +14,7 @@ class FileInfoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(defaultPadding),
+      padding: const EdgeInsets.all(defaultPadding),
       decoration: BoxDecoration(
           color: secondaryColor, borderRadius: BorderRadius.circular(10)),
       child: Column(
@@ -25,7 +25,7 @@ class FileInfoCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                padding: EdgeInsets.all(defaultPadding * 0.75),
+                padding: const EdgeInsets.all(defaultPadding * 0.75),
                 height: 40,
                 width: 40,
                 decoration: BoxDecoration(
@@ -37,7 +37,7 @@ class FileInfoCard extends StatelessWidget {
                   size: defaultPadding,
                 ),
               ),
-              Icon(
+              const Icon(
                 Icons.more_vert,
                 color: Colors.white54,
               )

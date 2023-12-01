@@ -26,7 +26,7 @@ class Chart extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(height: defaultPadding,),
+              const SizedBox(height: defaultPadding,),
               Text(
                 '29.1',
                 style: Theme.of(context)
@@ -36,7 +36,7 @@ class Chart extends StatelessWidget {
                     color: Colors.white,
                     fontWeight: FontWeight.w600),
               ),
-              Text(
+              const Text(
                 'of 128GB',
               ),
             ],

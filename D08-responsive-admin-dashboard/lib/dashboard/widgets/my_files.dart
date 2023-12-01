@@ -11,7 +11,7 @@ class MyFiles extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _width = MediaQuery.sizeOf(context).width;
+    final width = MediaQuery.sizeOf(context).width;
 
     return Column(
       children: [
@@ -24,8 +24,8 @@ class MyFiles extends StatelessWidget {
             ),
             ElevatedButton.icon(
               onPressed: () {},
-              icon: Icon(Icons.add),
-              label: Text('Add New'),
+              icon: const Icon(Icons.add),
+              label: const Text('Add New'),
               style: TextButton.styleFrom(
                 padding: EdgeInsets.symmetric(
                     horizontal: defaultPadding * 1.5, vertical: defaultPadding / (Responsive.isMobile(context) ? 2:1)),
@@ -35,15 +35,15 @@ class MyFiles extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(height: defaultPadding),
+        const SizedBox(height: defaultPadding),
         Responsive(
             mobile: FileInfoCardGridView(
-              crossAxisCount: _width < 650 ? 2 : 4,
-              childAspectRation: _width < 650 ? 1.3 : 1,
+              crossAxisCount: width < 650 ? 2 : 4,
+              childAspectRation: width < 650 ? 1.3 : 1,
             ),
-            tablet: FileInfoCardGridView(),
+            tablet: const FileInfoCardGridView(),
             desktop: FileInfoCardGridView(
-              childAspectRation: _width < 1400 ? 1.1 : 1.4,
+              childAspectRation: width < 1400 ? 1.1 : 1.4,
             ))
       ],
     );
@@ -63,7 +63,7 @@ class FileInfoCardGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       itemCount: demoMyFiles.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

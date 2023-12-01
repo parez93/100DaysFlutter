@@ -1,24 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:responsive_admin_dashboard/common/resposive.dart';
 import 'package:responsive_admin_dashboard/constants/constants.dart';
+import 'package:responsive_admin_dashboard/dashboard/controllers/menu_app.controller.dart';
 
-class Header extends StatelessWidget {
+class Header extends ConsumerWidget {
   const Header({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Row(
       children: [
         if (!Responsive.isDesktop(context))
-          IconButton(onPressed: () {}, icon: Icon(Icons.menu)),
+          IconButton(onPressed: () => ref.read(scaffoldKeyProvider.notifier).state.currentState?.openDrawer(), icon: const Icon(Icons.menu)),
         if (!Responsive.isMobile(context))
           Text('Dashboard', style: Theme.of(context).textTheme.headlineSmall),
         if (!Responsive.isMobile(context))
           Spacer(flex: Responsive.isDesktop(context) ? 2 : 1),
-        Expanded(child: SearchField()),
-        ProfileCard()
+        const Expanded(child: SearchField()),
+        const ProfileCard()
       ],
     );
   }
@@ -32,8 +34,8 @@ class ProfileCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(left: defaultPadding),
-      padding: EdgeInsets.symmetric(
+      margin: const EdgeInsets.only(left: defaultPadding),
+      padding: const EdgeInsets.symmetric(
           horizontal: defaultPadding, vertical: defaultPadding / 2),
       decoration: BoxDecoration(
           color: secondaryColor,
@@ -41,14 +43,14 @@ class ProfileCard extends StatelessWidget {
           border: Border.all(color: Colors.white10)),
       child: Row(
         children: [
-          FlutterLogo(size: 38),
+          const FlutterLogo(size: 38),
           if (!Responsive.isMobile(context))
-            Padding(
+            const Padding(
               padding:
-                  const EdgeInsets.symmetric(horizontal: defaultPadding / 2),
+                  EdgeInsets.symmetric(horizontal: defaultPadding / 2),
               child: Text('Admin'),
             ),
-          Icon(Icons.keyboard_arrow_down)
+          const Icon(Icons.keyboard_arrow_down)
         ],
       ),
     );
@@ -73,11 +75,11 @@ class SearchField extends StatelessWidget {
           suffixIcon: InkWell(
             onTap: () {},
             child: Container(
-              padding: EdgeInsets.all(defaultPadding * .75),
-              margin: EdgeInsets.symmetric(horizontal: defaultPadding / 2),
+              padding: const EdgeInsets.all(defaultPadding * .75),
+              margin: const EdgeInsets.symmetric(horizontal: defaultPadding / 2),
               decoration: BoxDecoration(
                   color: primaryColor, borderRadius: BorderRadius.circular(10)),
-              child: Icon(
+              child: const Icon(
                 Icons.search,
                 color: Colors.white,
               ),

@@ -10,7 +10,7 @@ class SideMenu extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            DrawerHeader(child: FlutterLogo()),
+            const DrawerHeader(child: FlutterLogo()),
             DrawerListTile(title: 'Dashboard', svgSrc: Icons.dashboard, onTap: (){}),
             DrawerListTile(title: 'Transaction', svgSrc: Icons.transform, onTap: (){}),
             DrawerListTile(title: 'Task', svgSrc: Icons.task, onTap: (){}),

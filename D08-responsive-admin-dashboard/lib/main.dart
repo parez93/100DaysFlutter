@@ -2,8 +2,10 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_admin_dashboard/constants/constants.dart';
+import 'package:responsive_admin_dashboard/dashboard/controllers/menu_app.controller.dart';
 import 'package:responsive_admin_dashboard/dashboard/dashboard_screen.dart';
 import 'package:responsive_admin_dashboard/widgets/side_menu.dart';
 
@@ -16,7 +18,7 @@ void main() {
   });
   runApp(DevicePreview(
     enabled: true,
-    builder: (context) => MyApp(), // Wrap your app
+    builder: (context) => const ProviderScope(child: MyApp()), // Wrap your app
   ));
 }
 
@@ -42,24 +44,20 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatefulWidget {
+class MyHomePage extends ConsumerWidget {
   const MyHomePage({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      drawer: SideMenu(),
+      key: ref.watch(scaffoldKeyProvider),
+      drawer: const SideMenu(),
       body: SafeArea(
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             if (Responsive.isDesktop(context))
-              Expanded(
+              const Expanded(
                 child: SideMenu(),
               ),
             Expanded(flex: 5, child: DashboardScreen()),
